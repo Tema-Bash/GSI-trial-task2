@@ -1,6 +1,5 @@
 function argMultiplier(...rest) {
     return rest.map((el, i) => {
-        console.log(el);
         return el * rest.length;
     });
 }
