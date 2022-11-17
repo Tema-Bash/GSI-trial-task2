@@ -8,7 +8,6 @@ class Calc {
     summ;
 
     constructor(arr) {
-        console.log(arr);
         this.summ = !arr
             ? 0
             : arr.reduce((prev, curr) => prev.valueOf() + curr.valueOf(), 0);
