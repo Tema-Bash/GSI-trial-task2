@@ -4,13 +4,25 @@
     идея реализации должна быть такой, чтобы было довольно просто добавить новую фигуру, например, Circle.
 */
 
-const calcFunc = function (arr) {
-    return arr.reduce((prev, curr) => prev.valueOf() + curr.valueOf(), 0);
-};
+class Calc {
+    summ;
 
-class Figure {
+    constructor(arr) {
+        console.log(arr);
+        this.summ = !arr
+            ? 0
+            : arr.reduce((prev, curr) => prev.valueOf() + curr.valueOf(), 0);
+    }
+
+    valueOf() {
+        return this.summ;
+    }
+}
+
+class Figure extends Calc {
     square;
     constructor() {
+        super();
         this.square = 0;
     }
 
@@ -33,6 +45,10 @@ class Rectangle extends Figure {
     }
 }
 
+const calc = new Calc([new Square(10), new Rectangle(10, 5)]);
+
+console.log(calc.valueOf());
+/*
 console.log(
     'Кейс calcFunc([new Square(10), new Rectangle(10, 5)])',
     'ожидаемое значение: 150',
@@ -46,3 +62,4 @@ console.log(
     'Получили: ',
     calcFunc([new Square(5), new Rectangle(-5, 3)])
 );
+*/
